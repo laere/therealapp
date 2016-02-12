@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # ReduxSimpleStarter
 
 ###Getting Started###
@@ -22,6 +23,11 @@ Click [here](https://github.com/StephenGrider/ReactStarter/releases) then downlo
 	> npm install
 	> npm start
 ```
+=======
+# therealappasdasdsadadada
+
+please god
+>>>>>>> aaa1ddaebc249d191e3da0d54b7c5072a98470cd
 =======
 # therealappasdasdsadadada
 
