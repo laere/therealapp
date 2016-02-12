@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import { store, actions } from '../reducers/store';
-
 export default class List extends Component {
 
   render() {
