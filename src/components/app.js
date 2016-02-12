@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { store, actions } from '../reducers/store';
 import List from '../containers/List';
 
-export default class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -12,6 +12,7 @@ export default class App extends Component {
   }
   addListItem(e) {
     store.dispatch(AddToDo(text))
+    console.log('test');
   }
 
   render() {
@@ -21,9 +22,10 @@ export default class App extends Component {
         <List
           updateText={this.updateText.bind(this)}
           addListItem={this.addListItem.bind(this)}
-          items={this.props.items}
           />
       </div>
     )
   }
 }
+
+export default App;

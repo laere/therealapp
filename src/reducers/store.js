@@ -3,7 +3,6 @@ import { createStore } from 'redux';
 //save string values to vars
 const ADD_TODO = 'ADD_TODO';
 const UPDATE_TEXT = 'UPDATE_TEXT';
-
 //the action is whats performed to alter state
 function AddToDo(text) {
   //addItem is an action creator and nees to return an action
@@ -16,16 +15,15 @@ function AddToDo(text) {
 //action that updates input text
 function UpdateText(text) {
   return {
+    type: UPDATE_TEXT,
     text
   };
 }
-
 //export actions
 export const actions = {
   AddToDo: AddToDo,
   UpdateText: UpdateText
 }
-
 //initial state of items and text
 const initialState = {
   items: [],
@@ -41,9 +39,15 @@ export function ToDoState(state = initialState, action) {
   //returns current state plus the new state
   switch(action.type) {
     case ADD_TODO:
-      //if add_todo action update stat.items with item text
-      state.items = state.items.concat({text: action.text});
-      return state;
+      //if add_todo action update items with item text
+      return Object.assign({}, state, {
+        items: [
+          ...state.items,
+          {
+            text: action.text
+          }
+        ]
+      })
   //returns state by default
     case UPDATE_TEXT:
       state.UpdateText = action.text;
@@ -52,7 +56,6 @@ export function ToDoState(state = initialState, action) {
     return state;
   }
 }
-
 let store = createStore(ToDoState);
 let unsubscribe = store.subscribe(() =>
   console.log(store.getState())
@@ -60,8 +63,8 @@ let unsubscribe = store.subscribe(() =>
 //logging initial state.
 console.log(store);
 //dispatching to do items.
-// store.dispatch(AddToDo('Learning redux'));
-// store.dispatch(AddToDo('this is fucking hard!!!'));
-
+store.dispatch(AddToDo('Learning redux'));
+store.dispatch(AddToDo('this is fucking hard!!!'));
+store.dispatch(AddToDo('HEY!!!!!!!!!!!!!!!!!!!!'))
 //stop listening for updates
 unsubscribe();

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ListItem from './ListItem';
+
 
 export default class List extends Component {
 
@@ -12,7 +12,6 @@ export default class List extends Component {
           <button onClick={this.props.addListItem}>Add</button>
         </form>
         <ul>
-          <ListItem />
         </ul>
       </div>
     );
