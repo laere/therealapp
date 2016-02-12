@@ -60,8 +60,8 @@ let unsubscribe = store.subscribe(() =>
 //logging initial state.
 console.log(store);
 //dispatching to do items.
-store.dispatch(AddToDo('Learning redux'));
-store.dispatch(AddToDo('this is fucking hard!!!'));
+// store.dispatch(AddToDo('Learning redux'));
+// store.dispatch(AddToDo('this is fucking hard!!!'));
 
 //stop listening for updates
 unsubscribe();

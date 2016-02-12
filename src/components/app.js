@@ -8,7 +8,7 @@ export default class App extends Component {
   }
   updateText(e) {
     store.dispatch(UpdateText(e.target.value));
-    console.log(e.target.value);
+    console.log(store);
   }
   addListItem(e) {
     store.dispatch(AddToDo(text))
@@ -21,6 +21,7 @@ export default class App extends Component {
         <List
           updateText={this.updateText.bind(this)}
           addListItem={this.addListItem.bind(this)}
+          items={this.props.items}
           />
       </div>
     )
