@@ -2,5 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app';
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { ToDoState } from '../src/reducers/reducer_todos';
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+let store = createStore(ToDoState);
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+  document.querySelector('.container'));

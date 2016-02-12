@@ -56,15 +56,3 @@ export function ToDoState(state = initialState, action) {
     return state;
   }
 }
-let store = createStore(ToDoState);
-let unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-);
-//logging initial state.
-console.log(store);
-//dispatching to do items.
-store.dispatch(AddToDo('Learning redux'));
-store.dispatch(AddToDo('this is fucking hard!!!'));
-store.dispatch(AddToDo('HEY!!!!!!!!!!!!!!!!!!!!'))
-//stop listening for updates
-unsubscribe();

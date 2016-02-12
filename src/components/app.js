@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { store, actions } from '../reducers/store';
 import List from '../containers/List';
 
 class App extends React.Component {
