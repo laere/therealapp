@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 //import actions
 import { UpdateText } from '../reducers/reducer_todos';
 import { AddToDo } from '../reducers/reducer_todos';
-// import { RemoveToDo } from '../reducers/reducer_todos';
 
+// import { RemoveToDo } from '../reducers/reducer_todos';
 //connect to store
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'react-redux';
+import { bindActionCreators } from 'redux';
+//import List component
 import List from '../containers/List';
 
 class App extends Component {
@@ -53,4 +54,4 @@ let mapStateToProps = (state) => {
   }
 }
 
-let MyConnectedClass = connect(mapStateToProps, mapDispatchToProps)(App);
+ export default connect(mapStateToProps, mapDispatchToProps)(App);
