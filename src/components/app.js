@@ -16,23 +16,24 @@ class App extends Component {
     super(props);
   }
 
-  updateText(e) {
-    dispatch(UpdateText(e.target.value));
-    console.log(value);
+  handleOnChange(e) {
+    this.props.UpdateText(e.target.value);
+    console.log(e.target.value);
   }
 
-  addTodo(e) {
-    dispatch(AddTodo(text));
+  onClick(e) {
+    this.props.AddTodo(this.getInputText());
+  }
+
+  getInputText() {
+    return this.refs.inputfield.value;
   }
 
   render() {
     return (
       <div>
         <h1>To Do App</h1>
-        <List
-          updateText={this.updateText.bind(this)}
-          addTodo={this.addTodo.bind(this)}
-          />
+        <List />
       </div>
     )
   }
