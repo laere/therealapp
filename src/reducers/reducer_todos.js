@@ -3,13 +3,17 @@ import { createStore } from 'redux';
 //save string values to vars
 const ADD_TODO = 'ADD_TODO';
 const UPDATE_TEXT = 'UPDATE_TEXT';
+const REMOVE_TODO = 'REMOVE_TODO';
+
+let nextId = 0;
 //the action is whats performed to alter state
 function AddToDo(text) {
   //addItem is an action creator and nees to return an action
   //an object with a type property
   return {
     type: ADD_TODO,
-    text
+    id: nextId++,
+    text,
   };
 }
 //action that updates input text
@@ -19,6 +23,13 @@ function UpdateText(text) {
     text
   };
 }
+
+// function RemoveToDo(id) {
+//   return {
+//     type: REMOVE_TODO,
+//     id
+//   };
+// }
 //export actions
 export const actions = {
   AddToDo: AddToDo,
@@ -40,18 +51,16 @@ export function ToDoState(state = initialState, action) {
   switch(action.type) {
     case ADD_TODO:
       //if add_todo action update items with item text
-      return Object.assign({}, state, {
-        items: [
-          ...state.items,
-          {
-            text: action.text
-          }
-        ]
-      })
+      state.items = state.items.concat({ id: action.id, text: action.text });
+      console.log(state, action);
+      return state;
   //returns state by default
     case UPDATE_TEXT:
       state.UpdateText = action.text;
       return state;
+    // case REMOVE_TODO:
+    //   state.items = state.items.filter(item => item.id !== action.id);
+    //   return state;
   default:
     return state;
   }
