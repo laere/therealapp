@@ -18,10 +18,10 @@ class App extends Component {
 
   handleOnChange(e) {
     this.props.UpdateText(e.target.value);
-    console.log(e.target.value);
   }
 
-  onClick(e) {
+  handleOnClick(e) {
+    e.preventDefault();
     this.props.AddTodo(this.getInputText());
   }
 

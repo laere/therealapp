@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-
-
 export default class List extends Component {
 
   render() {
@@ -9,10 +7,12 @@ export default class List extends Component {
     return (
       <div>
         <form>
-          <input ref="inputfield" type="text" onChange={this.props.handleOnChange}/>
-          <button onClick={this.props.onClick}>Add</button>
+          <input onChange={this.props.handleOnChange} ref="inputfield" type="text" />
+        <button onClick={this.props.handleOnClick}>Add</button>
         </form>
-        <ul></ul>
+        <ul>
+
+        </ul>
       </div>
     );
   }
