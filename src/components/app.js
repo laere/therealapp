@@ -16,12 +16,12 @@ class App extends Component {
   }
 
   updateText(e) {
-    this.props.UpdateText(e.target.value);
+    dispatch(UpdateText(e.target.value));
     console.log(value);
   }
 
-  addTodo() {
-    this.props.AddToDo(text);
+  addTodo(e) {
+    dispatch(AddTodo(text));
   }
 
   render() {
@@ -47,4 +47,10 @@ let mapDispatchToProps = (dispatch) => {
     }, dispatch);
 }
 
-let MyConnectedClass = connect(mapDispatchToProps)(App);
+let mapStateToProps = (state) => {
+  return {
+    items: state.items
+  }
+}
+
+let MyConnectedClass = connect(mapStateToProps, mapDispatchToProps)(App);
