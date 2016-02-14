@@ -7,10 +7,6 @@ export default class List extends Component {
 
     return (
       <div>
-        <form className="form-group">
-          <input onChange={this.props.handleOnChange} ref="inputfield" type="text" />
-          <button onClick={this.props.handleOnClick} className="btn btn-primary">Add</button>
-        </form>
         <ul>
           <ListItem />
         </ul>

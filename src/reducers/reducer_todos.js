@@ -7,13 +7,13 @@ const REMOVE_TODO = 'REMOVE_TODO';
 
 let nextId = 0;
 //the action is whats performed to alter state
+//addItem is an action creator and nees to return an action
+//an object with a type property
 export const AddToDo = (text) =>  {
-  //addItem is an action creator and nees to return an action
-  //an object with a type property
   return {
     type: ADD_TODO,
     id: nextId++,
-    text,
+    text
   };
 }
 //action that updates input text
@@ -24,12 +24,12 @@ export const UpdateText = (text) => {
   };
 }
 
-export const RemoveToDo = (id) => {
-  return {
-    type: REMOVE_TODO,
-    id
-  };
-}
+// export const RemoveToDo = (id) => {
+//   return {
+//     type: REMOVE_TODO,
+//     id
+//   };
+// }
 
 //initial state of items and text
 const initialState = {

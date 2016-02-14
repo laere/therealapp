@@ -35,10 +35,15 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div>
-        <h1>To Do App</h1>
-        <List />
+          <h1>To Do App</h1>
+          <form>
+            <input onChange={this.props.handleOnChange} ref="inputfield"/>
+            <button onClick={this.props.handleOnClick} >Add</button>
+          </form>
+          <List />
       </div>
     )
   }
