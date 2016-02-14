@@ -35,15 +35,14 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <div>
         <h1>To Do App</h1>
-          <form>
-            <input onChange={this.props.handleOnChange} ref="inputfield"/>
-            <button onClick={this.props.handleOnClick} >Add</button>
-          </form>
-          <List items={this.props.items}/>
+          <List
+            items={this.props.items}
+            handleOnClick={this.props.handleOnClick}
+            handleOnChange={this.props.handleOnChange}
+             />
       </div>
     )
   }
@@ -62,8 +61,7 @@ let mapDispatchToProps = (dispatch) => {
 let mapStateToProps = (state) => {
   return {
     items: state.items,
-    text: state.text,
-    id: state.id
+    text: state.text
   }
 }
 

@@ -6,19 +6,20 @@ export default class List extends Component {
   renderTodos() {
     return this.props.items.map((item) => {
       return (
-        <Listitem key={item.id}>
-          {item.text}
-        </Listitem>
+        <ListItem key={item.id} text={item.text} />
       );
     });
   }
 
   render() {
-
     return (
       <div>
+        <form>
+          <input onChange={this.props.handleOnChange} ref="inputfield"/>
+          <button onClick={this.props.handleOnClick} >Add</button>
+        </form>
         <ul>
-          {this.renderTodos()};
+          {this.renderTodos()}
         </ul>
       </div>
     );
