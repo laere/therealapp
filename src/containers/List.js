@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ListItem from '../components/ListItem';
 
 export default class List extends Component {
 
@@ -6,12 +7,12 @@ export default class List extends Component {
 
     return (
       <div>
-        <form>
+        <form className="form-group">
           <input onChange={this.props.handleOnChange} ref="inputfield" type="text" />
-        <button onClick={this.props.handleOnClick}>Add</button>
+          <button onClick={this.props.handleOnClick} className="btn btn-primary">Add</button>
         </form>
         <ul>
-
+          <ListItem />
         </ul>
       </div>
     );

@@ -1,5 +1,5 @@
 //create store
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
 //save string values to vars
 const ADD_TODO = 'ADD_TODO';
 const UPDATE_TEXT = 'UPDATE_TEXT';
@@ -7,7 +7,7 @@ const REMOVE_TODO = 'REMOVE_TODO';
 
 let nextId = 0;
 //the action is whats performed to alter state
-function AddToDo(text) {
+export const AddToDo = (text) =>  {
   //addItem is an action creator and nees to return an action
   //an object with a type property
   return {
@@ -17,24 +17,20 @@ function AddToDo(text) {
   };
 }
 //action that updates input text
-function UpdateText(text) {
+export const UpdateText = (text) => {
   return {
     type: UPDATE_TEXT,
     text
   };
 }
 
-// function RemoveToDo(id) {
-//   return {
-//     type: REMOVE_TODO,
-//     id
-//   };
-// }
-//export actions
-export const actions = {
-  AddToDo: AddToDo,
-  UpdateText: UpdateText
+export const RemoveToDo = (id) => {
+  return {
+    type: REMOVE_TODO,
+    id
+  };
 }
+
 //initial state of items and text
 const initialState = {
   items: [],
@@ -45,7 +41,7 @@ const initialState = {
 //Reducer controls the state, and is where state lives.
 //Adds a new to do item
 //state is initialstate
-export function ToDoState(state = initialState, action) {
+export const ToDoState = (state = initialState, action) => {
   //looks at the action type
   //returns current state plus the new state
   switch(action.type) {
