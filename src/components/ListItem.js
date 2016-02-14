@@ -4,7 +4,7 @@ export default class ListItem extends Component {
   render() {
     return (
       <li>
-        <h4>{this.props.text}</h4>
+        {this.props.text}
       </li>
     );
   }
