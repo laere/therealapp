@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 //import actions
 import { UpdateText } from '../reducers/reducer_todos';
-import { AddToDo } from '../reducers/reducer_todos';
-console.log(AddToDo);
-console.log(UpdateText);
-
+import { AddTodo } from '../reducers/reducer_todos';
 // import { RemoveToDo } from '../reducers/reducer_todos';
 //connect to store
 import { connect } from 'react-redux';
@@ -49,11 +46,9 @@ class App extends Component {
 }
 
 let mapDispatchToProps = (dispatch) => {
-  //takes single action or object as first arg
-  //takes dispatch as second arg
   return bindActionCreators(
     {
-      AddToDo: AddToDo,
+      AddTodo: AddTodo,
       UpdateText: UpdateText
     }, dispatch);
 }
