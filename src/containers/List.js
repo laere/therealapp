@@ -16,19 +16,22 @@ export default class List extends Component {
     if(inputValue === '') return;
 
     this.props.addTodo(inputValue);
-    console.log(inputValue);
+    console.log('This is the inputValue: ' + inputValue);
   }
 
-  clearInput(inputValue) {
+  clearInput() {
     this.refs.inputfield.value = '';
+    console.log('This clears the input value');
   }
 
   renderTodos() {
-    return this.props.items.map((item) => {
-      return (
-        <ListItem key={item.id} text={item.text} />
-      );
-    });
+    if(this.props.items) {
+      return this.props.items.map((item) => {
+        return (
+          <ListItem removeTodo={this.props.removeTodo} key={item.id} text={item.text} />
+        );
+      });
+    } else { return; }
   }
 
   render() {

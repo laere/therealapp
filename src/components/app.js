@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { AddTodo } from '../reducers/reducer_todos';
+import { RemoveTodo } from '../reducers/reducer_todos';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import List from '../containers/List';
@@ -9,10 +10,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.addTodo = this.addTodo.bind(this);
+    this.removeTodo = this.removeTodo.bind(this);
   }
 
   addTodo(text) {
     this.props.AddTodo(text);
+    console.log('This is the text passed to the AddTodo AC: ' + text);
+  }
+
+  removeTodo(id, e) {
+    this.props.RemoveTodo(id);
+    console.log('This is the ID of the removed todo: ' + id);
+    console.log(e.type, e.which, e.timeStamp);
   }
 
   render() {
@@ -22,6 +31,7 @@ class App extends Component {
           <List
             items={this.props.items}
             addTodo={this.addTodo}
+            removeTodo={this.removeTodo}
              />
       </div>
     )
@@ -31,7 +41,8 @@ class App extends Component {
 let mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      AddTodo: AddTodo
+      AddTodo: AddTodo,
+      RemoveTodo: RemoveTodo
     }, dispatch);
 }
 

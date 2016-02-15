@@ -7,7 +7,7 @@ export default class ListItem extends Component {
       <li>
         {this.props.text}
       </li>
-      <input type="submit" value="Remove" className="btn btn-secondary" />
+      <input onClick={this.props.removeTodo} type="submit" value="Remove" className="btn btn-secondary" />
     </div>
     );
   }
