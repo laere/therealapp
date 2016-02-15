@@ -31,7 +31,7 @@ export default class List extends Component {
           <ListItem removeTodo={this.props.removeTodo} key={item.id} text={item.text} />
         );
       });
-    } else { return; }
+    } 
   }
 
   render() {

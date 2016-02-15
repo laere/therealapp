@@ -4,6 +4,7 @@ const ADD_TODO = 'ADD_TODO';
 const REMOVE_TODO = 'REMOVE_TODO';
 
 let nextId = 0;
+let index = 0;
 //the action is whats performed to alter state
 //addItem is an action creator and nees to return an action
 export const AddTodo = (text) =>  {
@@ -34,7 +35,8 @@ export const ToDoState = (state = initialState, action) => {
       console.log('This is my state after ADD_TODO : ' + state, action);
       return state;
     case REMOVE_TODO:
-      state = dotProp.delete(state, 'items', items => [...items, { text: action.text, id: action.id }])
+      state = dotProp.delete(state, `items.${index}`)
+      console.log(index);
       console.log(state, action);
       return state;
   default:
