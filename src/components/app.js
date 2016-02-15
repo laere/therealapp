@@ -9,16 +9,19 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+    //reference these functions
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
   }
 
   addTodo(text) {
+    //add to do
     this.props.AddTodo(text);
     console.log('This is the text passed to the AddTodo AC: ' + text);
   }
 
   removeTodo(id, e) {
+    //remove todo
     this.props.RemoveTodo(id);
     console.log('This is the ID of the removed todo: ' + id);
     console.log(e.type, e.which, e.timeStamp);
@@ -28,6 +31,8 @@ class App extends Component {
     return (
       <div>
         <h1>To Do App</h1>
+          {/*pass down action creators
+            pass down items state*/}
           <List
             items={this.props.items}
             addTodo={this.addTodo}
@@ -37,6 +42,7 @@ class App extends Component {
     )
   }
 }
+
 
 let mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
