@@ -2,6 +2,8 @@ import dotProp from 'dot-prop-immutable';
 //save string values to vars
 const ADD_TODO = 'ADD_TODO';
 const REMOVE_TODO = 'REMOVE_TODO';
+const GET_TODO = 'GET_TODO';
+const POST_TODO = 'POST_TODO';
 
 let nextId = 0;
 let index = 0;
@@ -21,6 +23,20 @@ export const RemoveTodo = (id) => {
     id
   }
 }
+
+export const GetTodos = (item) => {
+  return {
+    type: GET_TODO,
+    item
+  }
+}
+
+export const PostTodo = (item) => {
+  return {
+    type: POST_TODO,
+    item
+  }
+}
 //initial state of items and text
 const initialState = {
   items: [],
@@ -38,6 +54,10 @@ export const ToDoState = (state = initialState, action) => {
       state = dotProp.delete(state, `items.${index}`)
       console.log(index);
       console.log(state, action);
+      return state;
+    case POST_TODO:
+      return state;
+    case GET_TODO:
       return state;
   default:
     return state;

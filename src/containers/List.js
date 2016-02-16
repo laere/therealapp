@@ -5,6 +5,7 @@ export default class List extends Component {
 
   constructor(props) {
     super(props);
+    //reference these functions
     this.handleOnClick = this.handleOnClick.bind(this);
     this.clearInput = this.clearInput.bind(this);
   }
