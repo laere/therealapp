@@ -1,4 +1,5 @@
 import dotProp from 'dot-prop-immutable';
+import axios from 'axios';
 //save string values to vars
 const ADD_TODO = 'ADD_TODO';
 const REMOVE_TODO = 'REMOVE_TODO';
@@ -47,8 +48,8 @@ export const RemoveTodo = (id) => {
 //   }
 // }
 
-export const FetchData = (FETCH_TODOS) => {
-  const req = fetch('http://localhost:3000/todo');
+export const FetchData = () => {
+  const req = axios.get('http://localhost:3000/todo/');
   return {
     type: FETCH_TODOS,
     payload: req
@@ -74,8 +75,10 @@ export const TodoState = (state = initialState, action) => {
       console.log(state, action);
       return state;
     case FETCH_TODOS:
-      console.log(req);
-      return action.payload;
+      console.log(action.payload.data);
+      const data = action.payload.data;
+      state = dotProp.set(state, 'items', data);
+      return state;
   default:
     return state;
   }

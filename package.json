@@ -19,6 +19,7 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "axios": "^0.9.1",
     "babel-preset-stage-1": "^6.1.18",
     "bootstrap-material-design": "^0.5.8",
     "dot-prop-immutable": "^1.1.2",
