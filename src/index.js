@@ -4,15 +4,17 @@ import App from './components/app';
 
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { ToDoState } from '../src/reducers/reducer_todos';
+import { TodoState } from '../src/reducers/reducer_todos';
+//middleware provides a extension pt between dispatching an action
+//and the moment it reaches the reducer (hence: MIDDLEware)
+import { createStore, applyMiddleware } from 'redux';
+import Promise from 'redux-promise';
 
-let store = createStore(ToDoState);
-
-console.log(store);
+const createStoreWithMiddleware = applyMiddleware(Promise)(createStore);
+console.log(createStoreWithMiddleware);
 
   ReactDOM.render(
-    <Provider store={store}>
+    <Provider store={createStoreWithMiddleware(TodoState)}>
       <App />
     </Provider>,
   document.querySelector('.container'));

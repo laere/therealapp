@@ -18,7 +18,6 @@ export default class List extends Component {
     if(inputValue === '') return;
     //pass input value to callback
     this.props.addTodo(inputValue);
-    console.log('This is the inputValue: ' + inputValue);
   }
 
   clearInput() {

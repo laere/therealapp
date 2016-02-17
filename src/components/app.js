@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { AddTodo } from '../reducers/reducer_todos';
-import { RemoveTodo } from '../reducers/reducer_todos';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import List from '../containers/List';
+//action creators
+import { AddTodo, RemoveTodo, FetchData } from '../reducers/reducer_todos';
+//reference to store
+import { connect } from 'react-redux';
+//allows use of action creators directly (without dispatch wrapper)
+import { bindActionCreators } from 'redux';
+
 
 class App extends Component {
 
@@ -12,6 +15,12 @@ class App extends Component {
     //reference these functions
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
+  }
+
+  componentWillMount() {
+    // fetch todos
+    //then dispatch them to action creator
+    this.props.FetchData();
   }
 
   addTodo(text) {
@@ -30,33 +39,34 @@ class App extends Component {
   render() {
     return (
       <div>
-          <h1>Todo List</h1>
-          {/*pass down action creators
-            pass down items state*/}
+        <h1>Todo List</h1>
+        {/*pass down action creators
+          pass down items state*/}
           <List
             items={this.props.items}
             addTodo={this.addTodo}
             removeTodo={this.removeTodo}
-             />
-      </div>
-    )
+            />
+        </div>
+      )
+    }
   }
-}
 
 
-let mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(
-    {
-      AddTodo: AddTodo,
-      RemoveTodo: RemoveTodo
-    }, dispatch);
-}
+  let mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(
+      {
+        AddTodo: AddTodo,
+        RemoveTodo: RemoveTodo,
+        FetchData: FetchData
+      }, dispatch);
+    }
 
-let mapStateToProps = (state) => {
-  return {
-    items: state.items,
-    text: state.text
-  }
-}
+    let mapStateToProps = (state) => {
+      return {
+        items: state.items,
+        text: state.text
+      }
+    }
 
- export default connect(mapStateToProps, mapDispatchToProps)(App);
+    export default connect(mapStateToProps, mapDispatchToProps)(App);

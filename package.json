@@ -5,8 +5,7 @@
   "main": "index.js",
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "start mainserver": "./server/main-server"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,10 +23,10 @@
     "bootstrap-material-design": "^0.5.8",
     "dot-prop-immutable": "^1.1.2",
     "lodash": "^3.10.1",
-    "mongoose": "^4.4.3",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-redux": "^4.0.0",
-    "redux": "^3.0.4"
+    "redux": "^3.0.4",
+    "redux-promise": "^0.5.1"
   }
 }
