@@ -17,25 +17,28 @@ let index = 0;
 //actions are plain javascript objects
 export const AddTodo = (text) => {
 
-  const post = axios.post(API, { text });
-  //logging purposes
+  const post = axios.post(API, { text } );
+  //promise
   post.then(function(response) {
-    if(response)
-      return console.log(response);
-  }, function(err) {
-    if(err)
-      return console.log('Error posting data...');
-  });
-
+    //if response log response
+      return console.log("response succesful");
+    }, function(err) {
+        //if error rollback the todo
+        console.log('Error')
+        return {
+          type: REMOVE_TODO,
+          id
+        };
+    });
     return {
       type: ADD_TODO,
       id: nextId++,
       payload: text
-    }
-}
+    };
+};
 
 export const RemoveTodo = (id) => {
-  const remove = axios.delete(API + id);
+  // const remove = axios.delete(API);
   return {
     type: REMOVE_TODO,
     id

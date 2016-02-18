@@ -48,7 +48,7 @@ class App extends Component {
             removeTodo={this.removeTodo}
             />
         </div>
-      )
+      );
     }
   }
 
@@ -60,13 +60,13 @@ class App extends Component {
         RemoveTodo: RemoveTodo,
         FetchTodos: FetchTodos
       }, dispatch);
-    }
+    };
 
     let mapStateToProps = (state) => {
       return {
         items: state.items,
         text: state.text
-      }
-    }
+      };
+    };
 
     export default connect(mapStateToProps, mapDispatchToProps)(App);
