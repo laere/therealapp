@@ -51,7 +51,7 @@ const initialState = {
 export const TodoState = (state = initialState, action) => {
   switch(action.type) {
     case ADD_TODO:
-      state = dotProp.get(state, 'items', items => [...items, {text:action.text, id:action.id}])
+      state = dotProp.set(state, 'items', items => [...items, { text: action.payload }])
       console.log('This is my state after ADD_TODO : ' + state, action);
       return state;
     case REMOVE_TODO:
