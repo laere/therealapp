@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import List from '../containers/List';
 //action creators
-import { AddTodo, RemoveTodo, FetchData } from '../reducers/reducer_todos';
+import { AddTodo, RemoveTodo, FetchTodos } from '../reducers/reducer_todos';
 //reference to store
 import { connect } from 'react-redux';
 //allows use of action creators directly (without dispatch wrapper)
@@ -20,7 +20,7 @@ class App extends Component {
   componentWillMount() {
     // fetch todos
     //then dispatch them to action creator
-    this.props.FetchData();
+    this.props.FetchTodos();
   }
 
   addTodo(text) {
@@ -58,7 +58,7 @@ class App extends Component {
       {
         AddTodo: AddTodo,
         RemoveTodo: RemoveTodo,
-        FetchData: FetchData
+        FetchTodos: FetchTodos
       }, dispatch);
     }
 
